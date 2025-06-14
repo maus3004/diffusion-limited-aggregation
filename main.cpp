@@ -3,6 +3,20 @@
 #include <vector>
 using namespace std;
 
+
+
+// void search
+void walk(vector<vector<int>> coordinates, int cube_length, int length_x, int length_y){
+    // add and delete a coordinate until we find it next to cube
+    // but we can't just randomly add a random point until it's next to another point, that wouldn't be walking
+    // possibly use a pointer and then make a new pointer that's a cube_length away and then delete the first pointer
+    // check the second pointer
+
+    int row = rand(0, length_x), col = rand(0, length_y);
+
+
+}
+
 int main() {
     int user_seed;
     cout << "Enter seed: ";
@@ -10,15 +24,20 @@ int main() {
     srand(user_seed);
 
     // using a coordinate system
-    int start_dimension_x = 100, start_dimension_y = 100;
+    int start_dimension_x = 10, start_dimension_y = 10;
     int cube_length = 1;
 
-    // begin with a
+    int threshold = (start_dimension_x * start_dimension_y) / 7;
 
-    vector<vector<int>> coordinates = {{start_dimension_x / 2, start_dimension_y / 2}, {10, 10}, {5, 5}};
+    // begin with a
+    vector<vector<int>> coordinates = {};
+
+    // the meat of the algorithm is here
+    for(int i = 0; i < threshold; i++){
+        walk(coordinates, cube_length, start_dimension_x, start_dimension_y);
+    }
 
     for(const auto& point : coordinates){
-        cout << "(" << point.at(0) << ", " << point.at(1) << ")" << endl;
     }
 
     // step one: make a small dla algorithm with small start dimensions
